@@ -58,7 +58,7 @@ for i in range(len(set_I)):
     for j in range(len(set_I)):
         c.append([set_I[j], set_I[i], poids[(len(set_I))*i+j]])
 
-df = ampl.getParameter('Lu')
+df = ampl.getParameter('c')
 df.set(c)
 
 
