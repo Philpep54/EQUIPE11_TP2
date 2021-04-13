@@ -71,25 +71,40 @@ ampl.solve()
 
 X = ampl.getVariable('X')
 X_val = X.getValues()
+X_val_dic = X_val.toDict()
 
 Y = ampl.getVariable('Y')
 Y_val = Y.getValues()
+Y_val_dic = Y_val.toDict()
 
 A = ampl.getVariable('Aij')
 A_val = A.getValues()
+A_val_dic = A_val.toDict()
 
 B = ampl.getVariable('Bij')
 B_val = B.getValues()
+B_val_dic = B_val.toDict()
 
 dx = ampl.getVariable('dx')
 dx_val = dx.getValues()
+dx_val_dic = dx_val.toDict()
 
 dy = ampl.getVariable('dy')
 dy_val = dy.getValues()
+dy_val_dic = dy_val.toDict()
 
-print(X_val)
-print(Y_val)
-print(A_val)
-print(B_val)
-print(dx_val)
-print(dy_val)
+# print(X_val)
+# print(Y_val)
+# print(A_val)
+# print(B_val)
+# print(dx_val)
+# print(dy_val)
+
+print(f"X: {X_val_dic}")
+print(f"Y: {Y_val_dic}")
+# print(f"Aij: {A_val_dic}")
+# print(f"Bij: {B_val_dic}")
+# print(f"dx: {dx_val_dic}")
+# print(f"dy: {dy_val_dic}")
+
+
