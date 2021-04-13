@@ -57,7 +57,7 @@ df = amplpy.DataFrame("K", "lon")
 df.setValues({I: larg_on[i]
                 for i, I in enumerate(set_K)})
 ampl.setData(df)
-print(df)
+
 """ Paramètre c """
 poids = [0,4,5,2,3,6,4,0,4,3,5,3,5,4,0,4,7,8,2,3,4,0,3,3,3,5,7,3,0,5,6,3,8,3,5,0]
 df = amplpy.DataFrame(('I','J'), 'c')
@@ -72,4 +72,22 @@ X_val = X.getValues()
 
 Y = ampl.getVariable('Y')
 Y_val = Y.getValues()
-print(X_val, Y_val)
+
+A = ampl.getVariable('Aij')
+A_val = A.getValues()
+
+B = ampl.getVariable('Bij')
+B_val = B.getValues()
+
+dx = ampl.getVariable('dx')
+dx_val = dx.getValues()
+
+dy = ampl.getVariable('dy')
+dy_val = dy.getValues()
+
+print(X_val)
+print(Y_val)
+print(A_val)
+print(B_val)
+print(dx_val)
+print(dy_val)
