@@ -31,7 +31,7 @@ dx = list_data[4]
 Dx = str(dx)
 
 dy = list_data[5]
-Dy = str(y)
+Dy = str(dy)
 
 bd_data = [X, Y, Aij, Bij, Dx, Dy]
 

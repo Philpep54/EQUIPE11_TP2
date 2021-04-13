@@ -33,7 +33,7 @@ class Solver:
         #-------------------Lecture du .mod-------------------#
 
         model_dir = os.path.normpath('/Applications/Document/ULaval/AMPL/ampl_macos64')
-        model = 'TP2_mod2.mod'
+        model = 'TP2_mod1.mod'
         ampl.read(os.path.join(model_dir, model))
 
         #----------------------Paramètre----------------------#
