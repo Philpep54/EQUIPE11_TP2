@@ -3,6 +3,9 @@
 
 ### Membre de l'équipe:
 Phillipe Pépin
+
 Baptiste Vicat
+
 Étienne Simard
+
 Jean-Philippe Delisle
