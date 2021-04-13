@@ -12,7 +12,7 @@ ampl = amplpy.AMPL(ampl_env)
 
 #--------------------Configuration--------------------#
 
-ampl.setOption('solver', 'cplex')
+ampl.setOption('solver', 'gurobi')
 
 #-------------------Lecture du .mod-------------------#
 
@@ -66,6 +66,8 @@ df.setValues({(I,J): poids[(len(set_K))*i+j]
             for j, I in enumerate(set_K)})
 ampl.setData(df)
 ampl.solve()
+
+#----------------------Affichage----------------------#
 
 X = ampl.getVariable('X')
 X_val = X.getValues()
