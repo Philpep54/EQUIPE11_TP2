@@ -100,19 +100,6 @@ class Solver:
         dy_val = dy.getValues()
         dy_val_dic = dy_val.toDict()
 
-        # print(X_val)
-        # print(Y_val)
-        # print(A_val)
-        # print(B_val)
-        # print(dx_val)
-        # print(dy_val)
-
-        # print(f"X: {X_val_dic}")
-        # print(f"Y: {Y_val_dic}")
-        # print(f"Aij: {A_val_dic}")
-        # print(f"Bij: {B_val_dic}")
-        # print(f"dx: {dx_val_dic}")
-        # print(f"dy: {dy_val_dic}")
         return X_val_dic, Y_val_dic, A_val_dic, B_val_dic, dx_val_dic, dy_val_dic
 
 
