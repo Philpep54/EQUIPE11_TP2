@@ -13,7 +13,6 @@ ampl = amplpy.AMPL(ampl_env)
 #--------------------Configuration--------------------#
 
 ampl.setOption('solver', 'cplex')
-ampl.setOption('cplex_options', 'timelim 600 outlev 1')
 
 #-------------------Lecture du .mod-------------------#
 
@@ -22,53 +21,55 @@ ampl.read(os.path.join(model_dir, 'TP2_mod1.mod'))
 
 #----------------------Paramètre----------------------#
 
+""" Paramètre n """
 df = ampl.getParameter('n')
 df.set(6)
 
+""" Paramètre m """
 df = ampl.getParameter('m')
 df.set(3)
 
+""" Paramètre d """
 df = ampl.getParameter('d')
 df.set(12)
 
+""" Paramètre L """
 df = ampl.getParameter('L')
 df.set(27)
 
-df = ampl.getParameter('Lu')
+""" Paramètre Lon_u """
+df = ampl.getParameter('Lon_u')
 df.set(24)
 
-set_I = [1,2,3,4,5,6]
-df = amplpy.DataFrame('I')
-df.setColumn('I', set_I)
-ampl.setData(df, 'I')
+""" Paramètre Lar_u """
+df = ampl.getParameter('Lar_u')
+df.set(60)
 
-set_J = [1,2,3,4,5,6]
-df = amplpy.DataFrame('J')
-df.setColumn('J', set_J)
-ampl.setData(df, 'J')
-
+""" Set K """
 set_K = [1,2,3,4,5,6]
 df = amplpy.DataFrame('K')
 df.setColumn('K', set_K)
 ampl.setData(df, 'K')
 
-c = {}
-poids = [0,4,5,9,2,6,4,0,4,3,5,3,5,4,0,4,7,8,2,3,4,0,3,3,3,5,7,3,0,5,6,3,8,3,5,0]
-
-# c.update({(J,I): poids[(len(set_I))*i+j]
-#             for i, I in enumerate(set_I)
-#             for j, J in enumerate(set_J)})
-
-df = amplpy.DataFrame(('I','J'), 'c')
-df.setValues({(I,J): poids[(len(set_I))*i+j]
-            for i, J in enumerate(set_I)
-            for j, I in enumerate(set_J)})
-
-# df = ampl.getParameter('c')
-# df.set(c)
-
-# for i,j in enumerate(c):
-#     print(j, c.get(j))
+""" Paramètre lon """
+larg_on = [4,3,5,4,6,5]
+df = amplpy.DataFrame("K", "lon")
+df.setValues({I: larg_on[i]
+                for i, I in enumerate(set_K)})
+ampl.setData(df)
 print(df)
+""" Paramètre c """
+poids = [0,4,5,2,3,6,4,0,4,3,5,3,5,4,0,4,7,8,2,3,4,0,3,3,3,5,7,3,0,5,6,3,8,3,5,0]
+df = amplpy.DataFrame(('I','J'), 'c')
+df.setValues({(I,J): poids[(len(set_K))*i+j]
+            for i, J in enumerate(set_K)
+            for j, I in enumerate(set_K)})
+ampl.setData(df)
+ampl.solve()
 
+X = ampl.getVariable('X')
+X_val = X.getValues()
 
+Y = ampl.getVariable('Y')
+Y_val = Y.getValues()
+print(X_val, Y_val)
