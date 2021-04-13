@@ -3,9 +3,15 @@ import os
 
 class Solver:
 
-    def __init__(self, set_k, larg_on, poids):
+    def __init__(self, n, m, d, L, lon_u, lar_u, set_K, larg_on, poids):
 
-        self.set_K = set_k
+        self.n = n
+        self.m = m
+        self.d = d
+        self.L = L
+        self.lon_u = lon_u
+        self.lar_u = lar_u
+        self.set_K = set_K
         self.larg_on = larg_on
         self.poids = poids
 
@@ -34,27 +40,27 @@ class Solver:
 
         """ Paramètre n """
         df = ampl.getParameter('n')
-        df.set(6)
+        df.set(self.n)
 
         """ Paramètre m """
         df = ampl.getParameter('m')
-        df.set(3)
+        df.set(self.m)
 
         """ Paramètre d """
         df = ampl.getParameter('d')
-        df.set(12)
+        df.set(self.d)
 
         """ Paramètre L """
         df = ampl.getParameter('L')
-        df.set(27)
+        df.set(self.L)
 
         """ Paramètre Lon_u """
         df = ampl.getParameter('Lon_u')
-        df.set(24)
+        df.set(self.lon_u)
 
         """ Paramètre Lar_u """
         df = ampl.getParameter('Lar_u')
-        df.set(60)
+        df.set(self.lar_u)
 
         """ Set K """
         df = amplpy.DataFrame('K')
