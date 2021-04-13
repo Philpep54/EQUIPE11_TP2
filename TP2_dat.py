@@ -4,6 +4,7 @@ import os
 class Solver:
 
     def __init__(self, set_k, larg_on, poids):
+
         self.set_K = set_k
         self.larg_on = larg_on
         self.poids = poids
@@ -106,9 +107,12 @@ class Solver:
         # print(dx_val)
         # print(dy_val)
 
-        print(f"X: {X_val_dic}")
-        print(f"Y: {Y_val_dic}")
-        print(f"Aij: {A_val_dic}")
-        print(f"Bij: {B_val_dic}")
-        print(f"dx: {dx_val_dic}")
-        print(f"dy: {dy_val_dic}")
+        # print(f"X: {X_val_dic}")
+        # print(f"Y: {Y_val_dic}")
+        # print(f"Aij: {A_val_dic}")
+        # print(f"Bij: {B_val_dic}")
+        # print(f"dx: {dx_val_dic}")
+        # print(f"dy: {dy_val_dic}")
+        return X_val_dic, Y_val_dic, A_val_dic, B_val_dic, dx_val_dic, dy_val_dic
+
+
