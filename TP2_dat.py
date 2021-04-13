@@ -27,7 +27,8 @@ class Solver:
         #-------------------Lecture du .mod-------------------#
 
         model_dir = os.path.normpath('/Applications/Document/ULaval/AMPL/ampl_macos64')
-        ampl.read(os.path.join(model_dir, 'TP2_mod1.mod'))
+        model = 'TP2_mod2.mod'
+        ampl.read(os.path.join(model_dir, model))
 
         #----------------------Paramètre----------------------#
 
@@ -101,6 +102,6 @@ class Solver:
         dy_val_dic = dy_val.toDict()
 
         return (X_val_dic, Y_val_dic, A_val_dic, B_val_dic, dx_val_dic, dy_val_dic,
-                X_val, Y_val, A_val, B_val, dx_val, dy_val)
+                X_val, Y_val, A_val, B_val, dx_val, dy_val, model)
 
 

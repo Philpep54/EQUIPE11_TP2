@@ -29,35 +29,47 @@ dic_Var_dx = res[4]
 dic_Var_dy = res[5]
 
 """ Array """
-upd_Var_X = []
-for i in dic_Var_X.values():
-    upd_Var_X.append(i)
-ar_Var_X = np.reshape(upd_Var_X, len(set_K))
+def ar_Var_X():
+    upd_Var_X = []
+    for i in dic_Var_X.values():
+        upd_Var_X.append(i)
+    ar_Var_X = np.reshape(upd_Var_X, len(set_K))
+    return ar_Var_X
 
-upd_Var_Y = []
-for i in dic_Var_Y.values():
-    upd_Var_Y.append(i)
-ar_Var_Y = np.reshape(upd_Var_Y, len(set_K))
+def ar_Var_Y():
+    upd_Var_Y = []
+    for i in dic_Var_Y.values():
+        upd_Var_Y.append(i)
+    ar_Var_Y = np.reshape(upd_Var_Y, len(set_K))
+    return ar_Var_Y
 
-upd_Var_Aij = []
-for i in dic_Var_Aij.values():
-    upd_Var_Aij.append(i)
-ar_Var_Aij = np.reshape(upd_Var_Aij, (len(set_K),len(set_K)))
+def ar_Var_Aij():
+    upd_Var_Aij = []
+    for i in dic_Var_Aij.values():
+        upd_Var_Aij.append(i)
+    ar_Var_Aij = np.reshape(upd_Var_Aij, (len(set_K),len(set_K)))
+    return ar_Var_Aij
 
-upd_Var_Bij = []
-for i in dic_Var_Bij.values():
-    upd_Var_Bij.append(i)
-ar_Var_Bij = np.reshape(upd_Var_Bij, (len(set_K),len(set_K)))
+def ar_Var_Bij():
+    upd_Var_Bij = []
+    for i in dic_Var_Bij.values():
+        upd_Var_Bij.append(i)
+    ar_Var_Bij = np.reshape(upd_Var_Bij, (len(set_K),len(set_K)))
+    return ar_Var_Bij
 
-upd_Var_dx = []
-for i in dic_Var_dx.values():
-    upd_Var_dx.append(i)
-ar_Var_dx = np.reshape(upd_Var_dx, (len(set_K),len(set_K)))
+def ar_Var_dx():
+    upd_Var_dx = []
+    for i in dic_Var_dx.values():
+        upd_Var_dx.append(i)
+    ar_Var_dx = np.reshape(upd_Var_dx, (len(set_K),len(set_K)))
+    return ar_Var_dx
 
-upd_Var_dy = []
-for i in dic_Var_dy.values():
-    upd_Var_dy.append(i)
-ar_Var_dy = np.reshape(upd_Var_dy, (len(set_K),len(set_K)))
+def ar_Var_dy():
+    upd_Var_dy = []
+    for i in dic_Var_dy.values():
+        upd_Var_dy.append(i)
+    ar_Var_dy = np.reshape(upd_Var_dy, (len(set_K),len(set_K)))
+    return ar_Var_dy
 
 
 #------------------------Affichage------------------------#
@@ -79,10 +91,11 @@ ar_Var_dy = np.reshape(upd_Var_dy, (len(set_K),len(set_K)))
 # print(f"\ndy:\n {dic_Var_dy}")
 
 """ Array """
-print(f"\n{ar_Var_X} X")
-print(f"\n{ar_Var_Y} Y")
-print(f"\n{ar_Var_Aij} Aij")
-print(f"\n{ar_Var_Bij} Bij")
-print(f"\n{ar_Var_dx} dx")
-print(f"\n{ar_Var_dy} dy")
+print(f"\n{res[12]}\n")
+print(f"\n{ar_Var_X()} X")
+print(f"\n{ar_Var_Y()} Y")
+print(f"\n{ar_Var_Aij()} Aij")
+print(f"\n{ar_Var_Bij()} Bij")
+print(f"\n{ar_Var_dx()} dx")
+print(f"\n{ar_Var_dy()} dy")
 
