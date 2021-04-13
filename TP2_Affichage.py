@@ -75,6 +75,7 @@ def ar_Var_dy():
 #------------------------Affichage------------------------#
 
 """ DataFrame """
+# print(f"\n{res[12]}\n")
 # print(f"\nX:\n {df_Var_X}")
 # print(f"\nY:\n {df_Var_Y}")
 # print(f"\nAij:\n {df_Var_Aij}")
@@ -83,6 +84,7 @@ def ar_Var_dy():
 # print(f"\ndy:\n {df_Var_dy}")
 
 """ Dictionnaire """
+# print(f"\n{res[12]}\n")
 # print(f"\nX:\n {dic_Var_X}")
 # print(f"\nY:\n {dic_Var_Y}")
 # print(f"\nAij:\n {dic_Var_Aij}")
