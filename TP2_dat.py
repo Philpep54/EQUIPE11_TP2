@@ -54,17 +54,21 @@ ampl.setData(df, 'K')
 
 c = {}
 poids = [0,4,5,9,2,6,4,0,4,3,5,3,5,4,0,4,7,8,2,3,4,0,3,3,3,5,7,3,0,5,6,3,8,3,5,0]
-for i in range(len(set_I)):
-    for j in range(len(set_I)):
-        c.update({(J,I): poids[(len(set_I))*i+j]
-        for i, I in enumerate(set_I)
-        for j, J in enumerate(set_J)})
+
+# c.update({(J,I): poids[(len(set_I))*i+j]
+#             for i, I in enumerate(set_I)
+#             for j, J in enumerate(set_J)})
+
+df = amplpy.DataFrame(('I','J'), 'c')
+df.setValues({(I,J): poids[(len(set_I))*i+j]
+            for i, J in enumerate(set_I)
+            for j, I in enumerate(set_J)})
 
 # df = ampl.getParameter('c')
 # df.set(c)
 
-for i,j in enumerate(c):
-    print(j,c.get(j))
-
+# for i,j in enumerate(c):
+#     print(j, c.get(j))
+print(df)
 
 
