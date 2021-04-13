@@ -27,7 +27,7 @@ Dy = str(dy)
 bd_data = [X, Y, Aij, Bij, Dx, Dy]
 
 
-connexion = sqlite3.connect('/Users/phillipepepin/Documents/UL_2020-2021/Hiver 2021/Environnement de développement de SIAD/SIAD_TP2/TP2_db.db')
+connexion = sqlite3.connect(emplacement_DB)
 
 cursor = connexion.cursor()
 
@@ -37,7 +37,4 @@ requete = ('''INSERT INTO configs (X, Y, Aij, Bij, dx, dy)
 cursor.execute(requete, (bd_data))
 cursor.execute("COMMIT")
 cursor.close()
-
-list_of_dict = []
-list_of_dict = [{}, {}, {}, {}, {}, {}]
 

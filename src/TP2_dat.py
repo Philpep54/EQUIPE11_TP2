@@ -1,5 +1,5 @@
 import amplpy
-from data import model
+from data import model, emplacement_AMPL
 import os
 
 class Solver:
@@ -22,8 +22,10 @@ class Solver:
         # ampl_env => l'environnement AMPL dans Python
         # ampl => notre traducteur, permet de lire les models
 
+        # model et emplacement_AMPL se trouvee dans data.py
+
         ampl_env = amplpy.Environment()
-        ampl_path = os.path.normpath('/Applications/Document/ULaval/AMPL/ampl_macos64')
+        ampl_path = os.path.normpath(emplacement_AMPL)
         ampl_env = amplpy.Environment(ampl_path)
         ampl = amplpy.AMPL(ampl_env)
 
@@ -33,7 +35,7 @@ class Solver:
 
         #-------------------Lecture du .mod-------------------#
 
-        model_dir = os.path.normpath('/Applications/Document/ULaval/AMPL/ampl_macos64')
+        model_dir = os.path.normpath(emplacement_AMPL)
         ampl.read(os.path.join(model_dir, model))
 
         #----------------------Paramètre----------------------#

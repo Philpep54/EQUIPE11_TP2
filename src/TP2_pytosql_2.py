@@ -52,7 +52,7 @@ Dy = str(ar_Var_dy)
 bd_data = [X, Y, Aij, Bij, Dx, Dy]
 
 
-connexion = sqlite3.connect('/Users/phillipepepin/Documents/UL_2020-2021/Hiver 2021/Environnement de développement de SIAD/SIAD_TP2/TP2_db.db')
+connexion = sqlite3.connect(emplacement_DB)
 
 cursor = connexion.cursor()
 

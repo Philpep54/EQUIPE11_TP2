@@ -1,8 +1,9 @@
 import sqlite3
 import os
+from data import emplacement_DB
 import numpy as np
 
-db_path = os.path.normpath('/Users/phillipepepin/Documents/UL_2020-2021/Hiver 2021/Environnement de développement de SIAD/SIAD_TP2/TP2_db.db')
+db_path = os.path.normpath(emplacement_DB)
 c = sqlite3.connect(db_path)
 
 #Create Table

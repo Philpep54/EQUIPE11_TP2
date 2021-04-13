@@ -1,7 +1,13 @@
 
-#-------------------------Données-------------------------#
+#-----------------------Emplacement-----------------------#
 
 model = 'TP2_mod3.mod'
+
+emplacement_AMPL = '/Applications/Document/ULaval/AMPL/ampl_macos64'
+
+emplacement_DB = '/Users/phillipepepin/Documents/UL_2020-2021/Hiver 2021/Environnement de développement de SIAD/SIAD_TP2/TP2_db.db'
+
+#-------------------------Données-------------------------#
 
 n = 6
 
