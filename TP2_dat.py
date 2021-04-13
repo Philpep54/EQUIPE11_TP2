@@ -100,6 +100,7 @@ class Solver:
         dy_val = dy.getValues()
         dy_val_dic = dy_val.toDict()
 
-        return X_val_dic, Y_val_dic, A_val_dic, B_val_dic, dx_val_dic, dy_val_dic
+        return (X_val_dic, Y_val_dic, A_val_dic, B_val_dic, dx_val_dic, dy_val_dic,
+                X_val, Y_val, A_val, B_val, dx_val, dy_val)
 
 
