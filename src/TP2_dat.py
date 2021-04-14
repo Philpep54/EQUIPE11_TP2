@@ -78,8 +78,8 @@ class Solver:
         """ Param c: Coût du déplacement de i => j """
         df = amplpy.DataFrame(('I','J'), 'c')
         df.setValues({(I,J): self.poids[(len(self.set_K))*i+j]
-                    for i, J in enumerate(self.set_K)
-                    for j, I in enumerate(self.set_K)})
+                    for i, I in enumerate(self.set_K)
+                    for j, J in enumerate(self.set_K)})
         ampl.setData(df)
         ampl.solve()
 
