@@ -2,7 +2,7 @@ import sqlite3
 import TP2_dat
 from data import *
 
-simulation1 = TP2_dat.Solver(n, m, d, L, lon_u, lar_u, set_K, larg_on, poids)
+simulation1 = TP2_dat.Solver(n, m, d, L, lon_u, lar_u, set_K, lon, poids)
 
 list_data = simulation1.solve()
 
