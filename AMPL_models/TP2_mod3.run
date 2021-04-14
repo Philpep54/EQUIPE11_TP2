@@ -1,0 +1,12 @@
+reset;
+option solver cplex;
+model TP2_mod3.mod;
+data TP2.dat;
+solve;
+display Z > TP2_mod3.txt;
+display X > TP2_mod3.txt;
+display Y > TP2_mod3.txt;
+display Aij > TP2_mod3.txt;
+display Bij > TP2_mod3.txt;
+display dx > TP2_mod3.txt;
+display dy > TP2_mod3.txt;

@@ -4,7 +4,7 @@ from TP2_dat import Solver
 
 #------------------------Variables------------------------#
 
-inst = Solver(n, m, d, L, lon_u, lar_u, set_K, larg_on, poids)
+inst = Solver(n, m, d, L, lon_u, lar_u, set_K, lon, poids)
 res = inst.solve()
 
 """ DataFrame """
@@ -70,7 +70,7 @@ def ar_Var_dy():
 #------------------------Affichage------------------------#
 
 def pr_df():
-    print(f"\n{res[12]}\n")
+    print(f"\n{res[12]}")
     print(f"\nX:\n {df_Var_X}")
     print(f"\nY:\n {df_Var_Y}")
     print(f"\nAij:\n {df_Var_Aij}")
@@ -79,7 +79,7 @@ def pr_df():
     print(f"\ndy:\n {df_Var_dy}")
 
 def pr_dic():
-    print(f"\n{res[12]}\n")
+    print(f"\n{res[12]}")
     print(f"\nX:\n {dic_Var_X}")
     print(f"\nY:\n {dic_Var_Y}")
     print(f"\nAij:\n {dic_Var_Aij}")
@@ -88,19 +88,27 @@ def pr_dic():
     print(f"\ndy:\n {dic_Var_dy}")
 
 def pr_ar():
-    print(f"\n{res[12]}\n")
-    print(f"\n{ar_Var_X()} X")
-    print(f"\n{ar_Var_Y()} Y")
-    print(f"\n{ar_Var_Aij()} Aij")
-    print(f"\n{ar_Var_Bij()} Bij")
-    print(f"\n{ar_Var_dx()} dx")
-    print(f"\n{ar_Var_dy()} dy")
+    print(f"\n{res[12]}")
+    print("""\n Var X: Position horizontale du département i """)
+    print(f"{ar_Var_X()}\n")
+    print("""\n Var Y: Position verticale du département i """)
+    print(f"{ar_Var_Y()}\n")
+    print("""\n Var Aij: Position relative; =1 si i est dans
+        la même rangée à la gauche de j, 0 sinon """)
+    print(f"{ar_Var_Aij()}\n")
+    print("""\n Var Bij: Position relative; =1 si i et j ne sont pas dans
+        la même rangée et que i est en dessous de j, 0 sinon """)
+    print(f"{ar_Var_Bij()}\n")
+    print("""\n Var dx: Distance horizontale entre i et j """)
+    print(f"{ar_Var_dx()}\n")
+    print("""\n Var dy: Distance verticale entre i et j """)
+    print(f"{ar_Var_dy()}\n")
 
-""" Afficher les DataFrame """
+""" Afficher les variables en DataFrame """
 # pr_df()
 
-""" Afficher les Dictionnaire """
+""" Afficher les variables en Dictionnaire """
 # pr_dic()
 
-""" Afficher les Array """
+""" Afficher les variables en Array """
 pr_ar()
