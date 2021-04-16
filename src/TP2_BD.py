@@ -14,3 +14,4 @@ c.execute('''CREATE TABLE configs
             Bij TEXT,
             dx TEXT,
             dy TEXT)''')
+

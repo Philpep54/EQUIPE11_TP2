@@ -111,4 +111,4 @@ def pr_ar():
 # pr_dic()
 
 """ Afficher les variables en Array """
-pr_ar()
+# pr_ar()
