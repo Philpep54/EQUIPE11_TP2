@@ -22,7 +22,7 @@ class Solver:
         # ampl_env => l'environnement AMPL dans Python
         # ampl => notre traducteur, permet de lire les models
 
-        # model et emplacement_AMPL se trouvee dans data.py
+        # model et emplacement_AMPL se trouv dans data.py
 
         ampl_env = amplpy.Environment()
         ampl_path = os.path.normpath(emplacement_AMPL)
