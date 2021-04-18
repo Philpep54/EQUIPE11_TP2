@@ -13,5 +13,7 @@ c.execute('''CREATE TABLE configs
             Aij TEXT,
             Bij TEXT,
             dx TEXT,
-            dy TEXT)''')
+            dy TEXT,
+            ddx TEXT,
+            ddy TEXT)''')
 

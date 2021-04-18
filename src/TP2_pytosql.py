@@ -49,15 +49,29 @@ for i in dy.values():
 ar_Var_dy = np.reshape(upd_Var_dy, (len(set_K),len(set_K)))
 Dy = str(ar_Var_dy)
 
-bd_data = [X, Y, Aij, Bij, Dx, Dy]
+ddx = list_data[6]
+upd_Var_ddx = []
+for i in ddx.values():
+    upd_Var_ddx.append(i)
+ar_Var_ddx = np.reshape(upd_Var_ddx, len(set_K))
+DDx = str(ar_Var_ddx)
+
+ddy = list_data[6]
+upd_Var_ddy = []
+for i in ddy.values():
+    upd_Var_ddy.append(i)
+ar_Var_ddy = np.reshape(upd_Var_ddy, len(set_K))
+DDy = str(ar_Var_ddy)
+
+bd_data = [X, Y, Aij, Bij, Dx, Dy, DDx, DDy]
 
 
 connexion = sqlite3.connect(emplacement_DB)
 
 cursor = connexion.cursor()
 
-requete = ('''INSERT INTO configs (X, Y, Aij, Bij, dx, dy)
-            VALUES (?, ?, ?, ?, ?, ?)''')
+requete = ('''INSERT INTO configs (X, Y, Aij, Bij, dx, dy, ddx, ddy)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)''')
 
 cursor.execute(requete, (bd_data))
 cursor.execute("COMMIT")

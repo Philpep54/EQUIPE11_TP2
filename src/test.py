@@ -15,8 +15,6 @@ Y = [i for i in Y_.values()]
 
 point = [(int(X[i]), int(Y[i])) for i in range(0, len(X))]
 
-point2 = [(1,3), (3,5), (6,7), (10,10)]
-
 """ creation "Usine" """
 usine = [[0]*lon_u]*lar_u
 usine = np.array(usine)
