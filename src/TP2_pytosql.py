@@ -3,7 +3,7 @@ import TP2_dat
 import numpy as np
 from data import *
 
-simulation1 = TP2_dat.Solver(n, m, d, L, lon_u, lar_u, set_K, lon, poids)
+simulation1 = TP2_dat.Solver(n, m, d, L, lon_u, lar_u, set_K, lon, poids, cd, Xa, Ya)
 
 list_data = simulation1.solve()
 

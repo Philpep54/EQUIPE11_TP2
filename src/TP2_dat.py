@@ -4,7 +4,7 @@ import os
 
 class Solver:
 
-    def __init__(self, n, m, d, L, lon_u, lar_u, set_K, lon, poids):
+    def __init__(self, n, m, d, L, lon_u, lar_u, set_K, lon, poids, cd, Xa, Ya):
 
         self.n = n
         self.m = m
@@ -15,6 +15,9 @@ class Solver:
         self.set_K = set_K
         self.lon = lon
         self.poids = poids
+        self.cd = cd
+        self.Xa = Xa
+        self.Ya = Ya
 
     def solve(self):
 
@@ -31,7 +34,7 @@ class Solver:
 
         #--------------------Configuration--------------------#
 
-        ampl.setOption('solver', 'gurobi')
+        ampl.setOption('solver', 'cplex')
 
         #-------------------Lecture du .mod-------------------#
 
@@ -56,6 +59,11 @@ class Solver:
         df = ampl.getParameter('L')
         df.set(self.L)
 
+        """ Coût du déménagement d'un département de sa 
+            position actuelle => sa nouvelle position """
+        df = ampl.getParameter('cd')
+        df.set(self.cd)
+
         """ Param Lon_u: Longueur MAX de l'usine """
         df = ampl.getParameter('Lon_u')
         df.set(self.lon_u)
@@ -72,6 +80,18 @@ class Solver:
         """ Param lon: Longueur du département k """
         df = amplpy.DataFrame("K", "lon")
         df.setValues({I: self.lon[i]
+                        for i, I in enumerate(self.set_K)})
+        ampl.setData(df)
+
+        """ Position horizontale actuelle du département k """
+        df = amplpy.DataFrame("K", "Xa")
+        df.setValues({I: self.Xa[i]
+                        for i, I in enumerate(self.set_K)})
+        ampl.setData(df)
+
+        """ Position verticale actuelle du département k """
+        df = amplpy.DataFrame("K", "Ya")
+        df.setValues({I: self.Ya[i]
                         for i, I in enumerate(self.set_K)})
         ampl.setData(df)
 
@@ -117,7 +137,17 @@ class Solver:
         dy_val = dy.getValues()
         dy_val_dic = dy_val.toDict()
 
-        return (X_val_dic, Y_val_dic, A_val_dic, B_val_dic, dx_val_dic, dy_val_dic,
-                X_val, Y_val, A_val, B_val, dx_val, dy_val, model)
+        """ Var ddx: Distance de déménagement horizontale """
+        ddx = ampl.getVariable('ddx')
+        ddx_val = ddx.getValues()
+        ddx_val_dic = ddx_val.toDict()
+
+        """ Var dxy: Distance de déménagement verticale """
+        ddy = ampl.getVariable('ddy')
+        ddy_val = ddy.getValues()
+        ddy_val_dic = ddy_val.toDict()
+
+        return (X_val_dic, Y_val_dic, A_val_dic, B_val_dic, dx_val_dic, dy_val_dic, ddx_val_dic, ddy_val_dic,
+                X_val, Y_val, A_val, B_val, dx_val, dy_val, ddx_val, ddy_val, model)
 
 
