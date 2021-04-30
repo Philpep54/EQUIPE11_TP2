@@ -24,6 +24,20 @@ from TP2_Affichage import pr_ar
 #   Situé dans le fichier data.py                       #
 #########################################################
 
+#########################################################
+#   Si une erreur du genre survient lors de             #
+#   l'exécution du script dans VSCode:                  #
+#       reportMissingImports                            #
+#                                                       #
+#   S'assurer d'avoir dans votre settings.json les      #
+#   réglages suivant:                                   #
+#                                                       #
+#   "python.languageServer": "Pylance"                  #
+#                                                       #
+#   "python.analysis.diagnosticSeverityOverrides": {    #
+#       "reportMissingImports": "none"                  #
+#########################################################
+
 
 """ Afficher le résultat dans le terminal """
 pr_ar()
