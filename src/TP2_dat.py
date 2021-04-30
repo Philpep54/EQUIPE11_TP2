@@ -1,6 +1,18 @@
+
+######################################################################
+""" 
+    La classe Solver présente dans ce script est le squelette de 
+    notre SIAD, elle fait le lien avec le logiciel AMPL en créant
+    les variables et les paramètres, elle les retourne ensuite sous 
+    forme de dictionnaire ou de dataframe propre au module eamplpy 
+"""
+######################################################################
+
+
 import amplpy
 from data import emplacement_AMPL, model
 import os
+
 
 class Solver:
 
@@ -21,11 +33,7 @@ class Solver:
 
     def solve(self):
 
-        # ampl_path => L'emplacement de AMPL et nos dossiers .mod
-        # ampl_env => l'environnement AMPL dans Python
-        # ampl => notre traducteur, permet de lire les models
-
-        # model et emplacement_AMPL se trouv dans data.py
+        #----------Initialisation de l'environnement----------#
 
         ampl_env = amplpy.Environment()
         ampl_path = os.path.normpath(emplacement_AMPL)

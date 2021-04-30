@@ -1,21 +1,21 @@
+
+###########################################################
+""" 
+    Le présent script construit l'affichage des variables 
+    sous la forme d'un dictionnaire ou d'un array numpy 
+"""
+###########################################################
+
+
 import numpy as np
 from data import *
 from TP2_dat import Solver
+
 
 #------------------------Variables------------------------#
 
 inst = Solver(n, m, d, L, lon_u, lar_u, set_K, lon, poids, cd, Xa, Ya)
 res = inst.solve()
-
-""" DataFrame """
-df_Var_X = res[8]
-df_Var_Y = res[9]
-df_Var_Aij = res[10]
-df_Var_Bij = res[11]
-df_Var_dx = res[12]
-df_Var_dy = res[13]
-df_Var_ddx = res[14]
-df_Var_ddy = res[15]
 
 """ Dictionnaire """
 dic_Var_X = res[0]
@@ -87,17 +87,6 @@ def ar_Var_ddy():
 
 #------------------------Affichage------------------------#
 
-def pr_df():
-    print(f"\n{res[16]}")
-    print(f"\nX:\n {df_Var_X}")
-    print(f"\nY:\n {df_Var_Y}")
-    print(f"\nAij:\n {df_Var_Aij}")
-    print(f"\nBij:\n {df_Var_Bij}")
-    print(f"\ndx:\n {df_Var_dx}")
-    print(f"\ndy:\n {df_Var_dy}")
-    print(f"\nddx:\n {df_Var_ddx}")
-    print(f"\nddy:\n {df_Var_ddy}")
-
 def pr_dic():
     print(f"\n{res[16]}")
     print(f"\nX:\n {dic_Var_X}")
@@ -130,11 +119,3 @@ def pr_ar():
     print("""\n Var ddy: Distance de déménagement verticale """)
     print(f"{ar_Var_ddy()}\n")
 
-""" Afficher les variables en DataFrame """
-# pr_df()
-
-""" Afficher les variables en Dictionnaire """
-# pr_dic()
-
-""" Afficher les variables en Array """
-pr_ar()

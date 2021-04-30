@@ -14,18 +14,23 @@ param lon {K}; # Longueur du département k
 param L; # Somme des longueurs de tous les départements
 param Lon_u; #longeur max de l'usines
 param Lar_u; #largeur max de l'usines
+param Xa {K}; # Position horizontale actuelle du département k
+param Ya {K}; # Position verticale actuelle du département k
+param cd; # Coût du déménagement d'un département de sa position actuelle à sa nouvelle position
+
 
 #************Variable*********************************
-var X {K} integer; #Position horizontale du département i
-var Y {K} integer; # Position verticale du département i
+var X {K} integer; #Position horizontale du département k
+var Y {K} integer; # Position verticale du département k
 var Aij {K, K}binary; # Position relative; =1 si i est dans la même rangée à la gauche de j, 0 sinon
 var Bij {K, K}binary; # Position relative; =1 si i et j ne sont pas dans la même rangée et que i est en dessous de j, 0 sinon
 var dx {K, K}; # Distance horizontale entre i et j
 var dy {K, K}; # Distance verticale entre i et j
+var ddx {K}; # Distance de déménagement horizontale
+var ddy {K}; # Distance de déménagement verticale 
 
 #************Fonction objectif************************
-minimize Z: sum {i in K,j in K: 1<= i < j <= n}
-	c[i, j] * (dx[i, j]+dy[i, j]);
+minimize Z: sum {i in K,j in K: 1<= i < j <= n}	((c[i, j] * (dx[i, j]+dy[i, j]))) + sum {k in K}(cd*(ddx[k]+ddy[k]));
 
 
 #************Contraintes******************************
@@ -33,7 +38,17 @@ subject to dist_horizontal {i in K, j in K: 1<= i < j <= n}:
 	dx[i,j]>= X[i]-X[j]; #Établissement distance horizontale entre les départements subject to dist_horizontal_2 {i in I, j in J}: dx[i,j]>= Xj[j]-Xi]i];
 subject to dist_horizontal_2 {i in K,j in K: 1<= i < j <= n}: 
 	dx[i,j]>= X[j]-X[i];
+
+subject to demenagement_horizontal {k in K}: 
+	ddx[k]>= Xa[k]-X[k]; #Établissement distance horizontale entre les départements subject to dist_horizontal_2 {i in I, j in J}: dx[i,j]>= Xj[j]-Xi]i];
+subject to demenagement_horizontal_2 {k in K}: 
+	ddx[k]>= X[k]-Xa[k];
 	
+subject to demenagement_verticale {k in K}: 
+	ddy[k]>= Ya[k]-Y[k]; #Établissement distance verticales entre les départements
+subject to demenagement_verticale_2 {k in K}: 
+	ddy[k]>= Y[k]-Ya[k];
+
 subject to dist_verticale {i in K, j in K: 1<= i < j <= n}: 
 	dy[i,j]>= Y[i]-Y[j]; #Établissement distance verticales entre les départements
 subject to dist_verticale_2 {i in K, j in K: 1<= i < j <= n}: 

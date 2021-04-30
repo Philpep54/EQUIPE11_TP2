@@ -14,14 +14,20 @@ param lon {K}; # Longueur du département k
 param L; # Somme des longueurs de tous les départements
 param Lon_u; #longeur max de l'usines
 param Lar_u; #largeur max de l'usines
+param Xa {K}; # Position horizontale actuelle du département k
+param Ya {K}; # Position verticale actuelle du département k
+param cd; # Coût du déménagement d'un département de sa position actuelle à sa nouvelle position
+
 
 #************Variable*********************************
-var X {K} integer; #Position horizontale du département i
-var Y {K} integer; # Position verticale du département i
+var X {K} integer; #Position horizontale du département k
+var Y {K} integer; # Position verticale du département k
 var Aij {K, K}binary; # Position relative; =1 si i est dans la même rangée à la gauche de j, 0 sinon
 var Bij {K, K}binary; # Position relative; =1 si i et j ne sont pas dans la même rangée et que i est en dessous de j, 0 sinon
 var dx {K, K}; # Distance horizontale entre i et j
 var dy {K, K}; # Distance verticale entre i et j
+var ddx {K}; # Distance de déménagement horizontale
+var ddy {K}; # Distance de déménagement verticale 
 
 #************Fonction objectif************************
 minimize Z: sum {i in K,j in K: 1<= i < j <= n}
@@ -30,7 +36,7 @@ minimize Z: sum {i in K,j in K: 1<= i < j <= n}
 
 #************Contraintes******************************
 subject to dist_horizontal {i in K, j in K: 1<= i < j <= n}: 
-	dx[i,j]>= X[i]-X[j]; #Établissement distance horizontale entre les départements subject to dist_horizontal_2 {i in I, j in J}: dx[i,j]>= Xj[j]-Xi]i];
+	dx[i,j]>= X[i]-X[j]; #Établissement distance horizontale entre les départements
 subject to dist_horizontal_2 {i in K,j in K: 1<= i < j <= n}: 
 	dx[i,j]>= X[j]-X[i];
 	
