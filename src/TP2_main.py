@@ -9,7 +9,6 @@
 
 
 from data import *
-from TP2_dat import Solver
 from TP2_pytosql import requete, bd_data, cursor
 from TP2_Affichage import pr_ar
 
@@ -17,12 +16,14 @@ from TP2_Affichage import pr_ar
 #########################################################
 #   S'assurer d'initialiser la base de données dans     #
 #   TP2_BD avant de publier le résultat dans celle-ci   #
+#                                                       #
+#   Choisir le model entre:     TP2_mod1.mod            #
+#                               TP2_mod2.mod            #
+#                               TP2_mod3.mod            #
+#                                                       #         
+#   Situé dans le fichier data.py                       #
 #########################################################
 
-
-""" Résoudre le problème """
-inst = Solver(n, m, d, L, lon_u, lar_u, set_K, lon, poids, cd, Xa, Ya)
-res = inst.solve()
 
 """ Afficher le résultat dans le terminal """
 pr_ar()
