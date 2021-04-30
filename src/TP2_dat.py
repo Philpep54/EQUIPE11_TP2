@@ -4,7 +4,7 @@
     La classe Solver présente dans ce script est le squelette de 
     notre SIAD, elle fait le lien avec le logiciel AMPL en créant
     les variables et les paramètres, elle les retourne ensuite sous 
-    forme de dictionnaire ou de dataframe propre au module eamplpy 
+    forme de dictionnaire ou de dataframe propre au module amplpy 
 """
 ######################################################################
 
