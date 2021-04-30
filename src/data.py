@@ -11,9 +11,9 @@
 
 model = 'TP2_mod1.mod'
 
-emplacement_AMPL = '/Applications/Document/ULaval/AMPL/ampl_macos64'
+emplacement_AMPL = 'C:/ampl_mswin64'
 
-emplacement_DB = '/Users/phillipepepin/Documents/UL_2020-2021/Hiver 2021/Environnement de développement de SIAD/EQUIPE11_TP2/TP2_db.db'
+emplacement_DB = './EQUIPE11_TP2/TP2_db.db'
 
 #-------------------------Données-------------------------#
 
