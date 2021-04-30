@@ -73,7 +73,3 @@ cursor = connexion.cursor()
 requete = ('''INSERT INTO configs (X, Y, Aij, Bij, dx, dy, ddx, ddy)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)''')
 
-cursor.execute(requete, (bd_data))
-cursor.execute("COMMIT")
-cursor.close()
-

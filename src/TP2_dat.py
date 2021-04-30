@@ -1,5 +1,5 @@
 import amplpy
-from data import model, emplacement_AMPL
+from data import emplacement_AMPL, model
 import os
 
 class Solver:

@@ -1,7 +1,7 @@
 
 #-----------------------Emplacement-----------------------#
 
-model = 'TP2_mod3.mod'
+model = 'TP2_mod1.mod'
 
 emplacement_AMPL = '/Applications/Document/ULaval/AMPL/ampl_macos64'
 
